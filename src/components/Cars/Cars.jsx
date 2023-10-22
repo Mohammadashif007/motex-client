@@ -1,13 +1,18 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Car from "../Car/Car";
 // import AdvertisementSection from "../AdvertisementSection/AdvertisementSection";
 import AdvertisementItems from "../AdvertisementItems/AdvertisementItems";
 import { AiFillCar } from "react-icons/ai";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import Marquee from "react-fast-marquee";
 
 const Cars = () => {
     const cars = useLoaderData();
+    const navigate = useNavigate();
+    const handleGoBack = () => {
+        navigate(-1);
+    }
     return (
         <div>
             <div className="w-4/5 mx-auto">
@@ -15,6 +20,14 @@ const Cars = () => {
                     {cars.map((car) => (
                         <Car key={car._id} car={car}></Car>
                     ))}
+                </div>
+                <div className="text-center mb-4">
+                    <button
+                        onClick={handleGoBack}
+                        className="btn bg-[#EF1D26] text-white text-[17px]"
+                    >
+                        <IoMdArrowRoundBack /> go back
+                    </button>
                 </div>
             </div>
             <div className="py-8">

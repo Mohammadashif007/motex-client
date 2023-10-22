@@ -1,7 +1,7 @@
 import React from "react";
 
 const AdvertisementItems = ({car}) => {
-    const { carName, carImage, enginType, bodyTypes} = car;
+    const { carName, carImage, color, bodyTypes} = car;
     return (
         <div className="card w-4/5 bg-base-100 shadow-xl">
             <figure>
@@ -15,9 +15,9 @@ const AdvertisementItems = ({car}) => {
                     </div>
                 </h2>
                 <p>Don't buy this car</p>
-                <div className="card-actions justify-end">
-                    <div className="badge badge-outline">{enginType}</div>
+                <div className="card-actions justify-end text-[#EF1D26]">
                     <div className="badge badge-outline">{bodyTypes}</div>
+                    <div className="badge badge-outline">{color}</div>
                 </div>
             </div>
         </div>

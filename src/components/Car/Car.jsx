@@ -1,9 +1,15 @@
 import React from "react";
 import { AiFillEye } from "react-icons/ai";
 import { GiFireworkRocket } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 
 const Car = ({ car }) => {
+    const navigate = useNavigate();
+    const handleDetailsPage = id => {
+        navigate(`/car/${id}`);
+    }
     const {
+        _id,
         carName,
         brandName,
         carImage,
@@ -66,7 +72,7 @@ const Car = ({ car }) => {
                         </p>
                     </div>
                     <div className="flex flex-col">
-                        <button className="btn bg-[#EF1D26] text-white text-[17px]">
+                        <button onClick={()=>handleDetailsPage(_id)} className="btn bg-[#EF1D26] text-white text-[17px]">
                             {" "}
                             <i className="text-2xl">
                                 <AiFillEye></AiFillEye>
