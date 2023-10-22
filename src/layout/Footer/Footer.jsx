@@ -5,7 +5,7 @@ import { FiMail } from "react-icons/fi";
 const Footer = () => {
     return (
         <div className=" bg-[#111111] text-[#F9F9F9]">
-            <div className="flex gap-4 w-10/12 mx-auto py-10 text-[18px]">
+            <div className="lg:flex gap-4 w-10/12 mx-auto py-10 text-[18px]">
                 <div className="flex-1">
                     <h2 className="text-4xl font-bold mb-8">MOT<span className="text-[#EF1D26]">E</span>X</h2>
                     <p className="text-[18px] mb-8">
