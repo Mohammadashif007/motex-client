@@ -85,7 +85,7 @@ const AddProducts = () => {
                             </textarea>
                             </div>
                         </div>
-                        <div className="flex justify-center">
+                        <div className="flex justify-center mb-8">
                             <input type="submit" value="Submit" className="border py-3 px-10 bg-[#EF1D26] text-white rounded font-bold text-[18px]" />
                         </div>
                     </div>
@@ -96,3 +96,5 @@ const AddProducts = () => {
 };
 
 export default AddProducts;
+
+
