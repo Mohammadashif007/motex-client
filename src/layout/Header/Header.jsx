@@ -44,7 +44,7 @@ const Header = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="text-3xl font-bold cursor-pointer" href="/">MOT<span className="text-[#EF1D26]">E</span>X</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">{navLinks}</ul>
