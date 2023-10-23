@@ -58,12 +58,14 @@ const Car = ({ car }) => {
                             className="text-[5px] mask mask-star-2 bg-orange-400"
                         />
                     </div>
-                    <p className="text-2xl">({rating}.0)</p>
+                    <p className="text-2xl">({rating})</p>
                 </div>
                 <p>{details}</p>
                 <div className="text-[#EF1D26]">
                     <div className="badge badge-outline">{bodyTypes}</div>
-                    <div className="badge badge-outline">{color}</div>
+                    {
+                        color ? <div className="badge badge-outline">{color}</div>:""
+                    }
                 </div>
                 <div className="flex justify-between items-center">
                     <div>

@@ -16,7 +16,7 @@ const BrandInfo = ({ brand }) => {
             className="text-center border p-3 rounded cursor-pointer"
         >
             <img src={brand_logo} alt="" />
-            <h1>{brand_name}</h1>
+            <h1 className="text-2xl font-bold">{brand_name}</h1>
         </div>
     );
 };
