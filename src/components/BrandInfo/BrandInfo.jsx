@@ -13,7 +13,7 @@ const BrandInfo = ({ brand }) => {
         <div
             
             onClick={() => handleCarsNavigate(brand_name)}
-            className="text-center border p-3 rounded cursor-pointer"
+            className="text-center border p-3 rounded cursor-pointer hover:bg-gray-200 hover:-translate-y-1"
         >
             <img src={brand_logo} alt="" />
             <h1 className="text-2xl font-bold">{brand_name}</h1>

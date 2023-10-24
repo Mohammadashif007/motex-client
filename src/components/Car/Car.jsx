@@ -1,13 +1,13 @@
 import React from "react";
 import { AiFillEye } from "react-icons/ai";
 import { GiFireworkRocket } from "react-icons/gi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Car = ({ car }) => {
     const navigate = useNavigate();
-    const handleDetailsPage = id => {
+    const handleDetailsPage = (id) => {
         navigate(`/car/${id}`);
-    }
+    };
     const {
         _id,
         carName,
@@ -63,9 +63,11 @@ const Car = ({ car }) => {
                 <p>{details}</p>
                 <div className="text-[#EF1D26]">
                     <div className="badge badge-outline">{bodyTypes}</div>
-                    {
-                        color ? <div className="badge badge-outline">{color}</div>:""
-                    }
+                    {color ? (
+                        <div className="badge badge-outline">{color}</div>
+                    ) : (
+                        ""
+                    )}
                 </div>
                 <div className="flex justify-between items-center">
                     <div>
@@ -74,19 +76,24 @@ const Car = ({ car }) => {
                         </p>
                     </div>
                     <div className="flex flex-col">
-                        <button onClick={()=>handleDetailsPage(_id)} className="btn bg-[#EF1D26] text-white text-[17px]">
+                        <button
+                            onClick={() => handleDetailsPage(_id)}
+                            className="btn bg-[#EF1D26] text-white text-[17px]"
+                        >
                             {" "}
                             <i className="text-2xl">
                                 <AiFillEye></AiFillEye>
                             </i>
                             Details
                         </button>
-                        <button className="btn bg-[#EF1D26] text-white text-[17px]">
-                            <i className="text-2xl">
-                                <GiFireworkRocket></GiFireworkRocket>
-                            </i>
-                            Update
-                        </button>
+                        <Link to={`/updateInfo/${_id}`}>
+                            <button className="btn bg-[#EF1D26] text-white text-[17px]">
+                                <i className="text-2xl">
+                                    <GiFireworkRocket></GiFireworkRocket>
+                                </i>
+                                Update
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
