@@ -4,8 +4,9 @@ import { AuthContext } from "../../providers/AuthProviders";
 
 const Registration = () => {
     const { createUser } = useContext(AuthContext);
-    const [success, setSuccess] = useState('');
-    const [error, setError] = useState('');
+    const [success, setSuccess] = useState("");
+    const [error, setError] = useState("");
+
 
     const handleRegistration = (event) => {
         event.preventDefault();
@@ -16,19 +17,17 @@ const Registration = () => {
         const password = form.password.value;
         console.log(name, photo, email, password);
 
-        setSuccess('');
-        setError('');
+        setSuccess("");
+        setError("");
 
-        if(password.length < 6) {
-            setError('Password should be at least 6 character.');
+        if (password.length < 6) {
+            setError("Password should be at least 6 character.");
             return;
-        }
-        else if(!/[A-Z]/.test(password)){
-            setError('Password should be one upper case');
+        } else if (!/[A-Z]/.test(password)) {
+            setError("Password should be one upper case");
             return;
-        }
-        else if(!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\\/|]/.test(password)){
-            setError('Password should be one special character');
+        } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\\/|]/.test(password)) {
+            setError("Password should be one special character");
             return;
         }
 
@@ -36,7 +35,7 @@ const Registration = () => {
             .then((result) => {
                 console.log(result.user);
                 form.reset();
-                setSuccess('User create successfully');
+                setSuccess("User create successfully");
             })
             .catch((error) => {
                 console.log(error.message);

@@ -63,6 +63,7 @@ const UpdateInfo = () => {
             <h2 className="text-4xl font-bold mb-8 text-center">
                 Update <span className="text-[#EF1D26]">Car</span> Information
             </h2>
+            <p className="text-[#EF1D26] text-[18px] text-center py-3">Warning: Do not change the brand name; if you make changes, the card will disappear.</p>
             <div>
                 <form onSubmit={handleUpdateInfo}>
                     <div className="">

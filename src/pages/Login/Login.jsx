@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -15,11 +17,15 @@ const Login = () => {
         signIn(email, password)
             .then((result) => {
                 console.log(result.user);
+                navigate('/');
             })
             .catch((error) => {
                 console.log(error);
+                setError("Invalid email/password please try again");
             });
     };
+
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col ">
@@ -61,6 +67,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
+                        <p className="text-red-500">{error}</p>
                     </form>
                     <p className="p-5">
                         New here ? Please{" "}
@@ -68,6 +75,9 @@ const Login = () => {
                             <Link to="/registration">Register</Link>
                         </span>
                     </p>
+                    <div className="form-control w-4/5 mx-auto mb-5">
+                        <button onClick={signInWithGoogle} className="btn bg-[#EF1D26] text-white">Google</button>
+                    </div>
                 </div>
             </div>
         </div>

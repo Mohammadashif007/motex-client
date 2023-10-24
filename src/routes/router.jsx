@@ -8,6 +8,8 @@ import CarDetails from "../components/CarDetails/CarDetails";
 import UpdateInfo from "../components/UpdateInfo/UpdateInfo";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
+import PrivateRoute from "./PrivateRoute";
+import NotFound from "../pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -26,21 +28,21 @@ const router = createBrowserRouter([
             },
             {
                 path: '/car/:id',
-                element: <CarDetails></CarDetails>,
+                element: <PrivateRoute><CarDetails></CarDetails></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/car/${params.id}`)
             },
             {
                 path: '/addProduct',
-                element: <AddProducts></AddProducts>
+                element: <PrivateRoute><AddProducts></AddProducts></PrivateRoute>,
             },
             {
                 path: '/myCart',
-                element: <MyCart></MyCart>,
+                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/cart')
             },
             {
                 path: '/updateInfo/:id',
-                element: <UpdateInfo></UpdateInfo>,
+                element: <PrivateRoute><UpdateInfo></UpdateInfo></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/updateInfo/${params.id}`)
             },
             {
@@ -50,6 +52,10 @@ const router = createBrowserRouter([
             {
                 path: '/registration',
                 element: <Registration></Registration>
+            },
+            {
+                path: '*', 
+                element: <NotFound></NotFound>
             }
         ]
     }

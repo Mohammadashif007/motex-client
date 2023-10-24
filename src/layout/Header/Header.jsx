@@ -6,14 +6,14 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
-       logOut()
-       .then(() => {
-        console.log('logout successfully');
-       })
-       .catch(error => {
-        console.log(error)
-       })
-    }
+        logOut()
+            .then(() => {
+                console.log("logout successfully");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
     const navLinks = (
         <>
@@ -21,12 +21,16 @@ const Header = () => {
                 <NavLink to="/">Home</NavLink>
             </li>
 
-            <li>
-                <NavLink to="/addProduct">Add Product</NavLink>
-            </li>
-            <li>
-                <NavLink to="/myCart">My Cart</NavLink>
-            </li>
+            {user && (
+                <>
+                    <li>
+                        <NavLink to="/addProduct">Add Product</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/myCart">My Cart</NavLink>
+                    </li>
+                </>
+            )}
         </>
     );
 
@@ -68,7 +72,9 @@ const Header = () => {
                 {user ? (
                     <>
                         <span>{user.email}</span>
-                        <button onClick={handleLogOut} className="btn">LogOut</button>
+                        <button onClick={handleLogOut} className="btn">
+                            LogOut
+                        </button>
                     </>
                 ) : (
                     <button className="btn">
